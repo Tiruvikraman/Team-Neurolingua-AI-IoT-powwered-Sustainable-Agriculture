@@ -6,7 +6,7 @@ import base64
 from gtts import gTTS
 import os
 app = Flask(__name__)
-db = pymysql.connect(host="localhost", user="root", password="1234", database="tea_farm")
+db = pymysql.connect(host="localhost", user="root", password="1234", database="farm")
 cursor = db.cursor()
 
 
