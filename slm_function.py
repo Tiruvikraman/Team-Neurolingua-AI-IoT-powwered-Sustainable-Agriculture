@@ -1,14 +1,19 @@
 
-import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-from transformers import T5Tokenizer ,T5ForConditionalGeneration,DataCollatorForSeq2Seq
+from unsloth import FastLanguageModel
+import torch
+from trl import SFTTrainer
+from transformers import TrainingArguments
+max_seq_length = 2048 # Choose any! We auto support RoPE Scaling internally!
+dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
+load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
 
-MODEL_NAME = "scientisthere/sap_currency_conversion_usecase"
-tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
-model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
-data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
-os.environ["HF_TOKEN"] = "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"
 
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name = "phi3_finetuned_final",
+    max_seq_length = max_seq_length,
+    dtype = dtype,
+    load_in_4bit = load_in_4bit,
+)
 def response(input,length):
     my_question =input
     inputs = "Please answer to this question: " + my_question
