@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, jsonify,send_from_directory
-#import pymysql
+import pymysql
 import matplotlib.pyplot as plt
 import io
 import base64
 from gtts import gTTS
 import os
 app = Flask(__name__)
-'''db = pymysql.connect(host="localhost", user="root", password="1234", database="tea_farm")
-cursor = db.cursor()'''
+db = pymysql.connect(host="localhost", user="root", password="1234", database="tea_farm")
+cursor = db.cursor()
 
 
 UPLOAD_FOLDER = 'uploads'
@@ -18,16 +18,15 @@ if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
 
 # Text for pest and disease
-pest_text = '''tea mosquito bugs,to get rid,spray with neem oil and garlic,use sticky traps, and trap crops like castor . Expect results in 2 to 4 weeks.চা মশার বাগ, পরিত্রাণ পেতে, নিম তেল এবং রসুন দিয়ে স্প্রে করুন, আঠালো ফাঁদ ব্যবহার করুন এবং ক্যাস্টরের মতো ফসল ফাঁদ করুন। 2-4 সপ্তাহের মধ্যে ফলাফল আশা করুন।'''
-disease_text = '''Detected Disease: Brown Blight is a fungal disease To treat it spray a mix of baking soda, water and apply organic mulch to keep soil healthy.ব্রাউন ব্লাইট একটি ছত্রাকজনিত রোগের চিকিৎসার জন্য বেকিং সোডা, পানির মিশ্রণ স্প্রে করুন এবং মাটি সুস্থ রাখতে জৈব মালচ প্রয়োগ করুন'''
-# Dictionary to store sensor data
+pest_text =response(pest_name)
+disease_text = response(disease_name)
 sensor_data = {
     'temperature': None,
     'humidity': None,
     'irValue': None,
     'distance': None
 }
-
+model=load_model('pest_disease.h5')
 @app.route('/home')
 def home():
     return render_template('index.html')
@@ -44,6 +43,7 @@ def upload_file():
         if 'pest_file' in request.files:
             pest_file = request.files['pest_file']
             if pest_file.filename != '':
+                pest_name=model.predict(pest_file)
                 pest_filename = pest_file.filename
                 pest_file.save(os.path.join(UPLOAD_FOLDER, pest_filename))
                 tts_pest = gTTS(text=pest_text, lang='en', slow=False)
@@ -52,6 +52,7 @@ def upload_file():
         if 'disease_file' in request.files:
             disease_file = request.files['disease_file']
             if disease_file.filename != '':
+                disease_name=model.predict(disease_file)
                 disease_filename = disease_file.filename
                 disease_file.save(os.path.join(UPLOAD_FOLDER, disease_filename))
                 tts_disease = gTTS(text=disease_text, lang='en', slow=False)
@@ -80,7 +81,6 @@ def fertigation():
 
 @app.route('/activity-log')
 def activity_log():
-    return 0
     # Fetch data for IR value distribution plot
     cursor.execute("SELECT ir_value FROM sensor_data")
     ir_values = cursor.fetchall()
