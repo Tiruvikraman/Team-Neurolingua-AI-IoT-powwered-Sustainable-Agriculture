@@ -61,6 +61,9 @@ Here are some screenshots of our system in action:
 ![Zone Pest Highlight](images/zone_pest.jpg)
 *This shows in which area the pest has been infected*
 
+![Fertigation](images/fertigation.png)
+*This shows the fertilization schedule of each crops*
+
 ![Sensors](images/sensors.jpg)
 *This shows values recorded by different sensors*
 
