@@ -42,14 +42,33 @@ A machine learning-enhanced web app identifies pests and diseases from images up
 - **Support for Sustainable Agricultural Practices**: The system's comprehensive approach promotes long-term agricultural sustainability.
 - **Boosted Productivity and Economic Stability for Farmers**: Improved crop yields and resource management lead to better economic outcomes for farmers.
 
+## Demo Screenshots
+
+Here are some screenshots of our system in action:
+
+![Dashboard](images/dashboard.png)
+*Dashboard showing real-time monitoring and control features.*
+
+![Pest Detection](images/pest_detection.png)
+*Pest detection interface with infrared sensor data.*
+
+![Disease Management](images/disease_management.png)
+*Disease management interface with ESP camera module data.*
+
+![Environmental Sensors](images/environmental_sensors.png)
+*Environmental sensor data for soil condition monitoring.*
+
+![LLM Chatbot](images/llm_chatbot.png)
+*LLM chatbot providing instant agricultural advice.*
+
 ## Model Files
 
-Access the model files through the following link:  https://drive.google.com/drive/folders/1AS9lIVWEyzMGhODei_se8k2pjCsECadG?usp=sharing
+Access the model files through the following link: [Model Files Link](https://drive.google.com/drive/folders/1AS9lIVWEyzMGhODei_se8k2pjCsECadG?usp=sharing)
 
 ## Video
 
-Watch our demonstration video here: [[Video Link](https://drive.google.com/drive/folders/1tUu5wzGnfmGBTtrPU3Vv9bHlscReXE3W)
-](https://drive.google.com/drive/folders/1tUu5wzGnfmGBTtrPU3Vv9bHlscReXE3W)
+Watch our demonstration video here: [Video Link](https://drive.google.com/drive/folders/1tUu5wzGnfmGBTtrPU3Vv9bHlscReXE3W)
+
 ## Contact
 
 For more information, please contact us at 22d156@psgitech.ac.in or 6382792828.
@@ -58,3 +77,7 @@ Team Neurolingua:
 - Roshaun Infant R
 - Sharvesh K
 - Tiruvikraman V
+
+---
+
+Note: Make sure to place the actual images in the "images" folder within your repository, or adjust the paths accordingly.
