@@ -46,20 +46,26 @@ A machine learning-enhanced web app identifies pests and diseases from images up
 
 Here are some screenshots of our system in action:
 
+![IoT Kit](images/iot_kit.jpg)
+*This is the image of our proposed IoT kit*
+
 ![Dashboard](images/dashboard.png)
 *Dashboard showing real-time monitoring and control features.*
 
 ![Pest Detection](images/pest_detection.png)
 *Pest detection interface with infrared sensor data.*
 
-![Disease Management](images/disease_management.png)
-*Disease management interface with ESP camera module data.*
+![Zone Location](images/zone_identification.jpg)
+*Zone identifiaction of the user in a map.*
 
-![Environmental Sensors](images/environmental_sensors.png)
-*Environmental sensor data for soil condition monitoring.*
+![Zone Pest Highlight](images/zone_pest.jpg)
+*This shows in which area the pest has been infected*
 
-![LLM Chatbot](images/llm_chatbot.png)
-*LLM chatbot providing instant agricultural advice.*
+![Sensors](images/sensors.jpg)
+*This shows values recorded by different sensors*
+
+![Graph](images/graph.jpg)
+*This shows the distance in the graph recorded by using Ultrasonic transducer in a real time data*
 
 ## Model Files
 
