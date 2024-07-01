@@ -46,7 +46,7 @@ A machine learning-enhanced web app identifies pests and diseases from images up
 
 Here are some screenshots of our system in action:
 
-![IoT Kit](images/iot_kit.jpg)
+![IoT Kit](images/iot_kit.png)
 *This is the image of our proposed IoT kit*
 
 ![Dashboard](images/dashboard.png)
