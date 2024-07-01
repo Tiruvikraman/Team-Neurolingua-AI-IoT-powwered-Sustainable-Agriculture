@@ -86,4 +86,3 @@ Team Neurolingua:
 
 ---
 
-Note: Make sure to place the actual images in the "images" folder within your repository, or adjust the paths accordingly.
